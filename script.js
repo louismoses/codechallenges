@@ -20,8 +20,12 @@ printForecast(testData2);
 */
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
-
 let highScore = 0;
+
+// function to display message
+const displayMessage = function (message) {
+  document.querySelector(".message").textContent = message;
+};
 
 //check my guess --------------------------
 document.querySelector(".check").addEventListener("click", function () {
@@ -30,11 +34,13 @@ document.querySelector(".check").addEventListener("click", function () {
   if (score) {
     //no input
     if (!guess) {
-      document.querySelector(".message").textContent = "⛔ No Number!";
+      // document.querySelector(".message").textContent = "⛔ No Number!";
+      displayMessage("⛔ No Number!");
     }
-    // when player win!
+    // when guess is correct
     else if (guess === secretNumber) {
-      document.querySelector(".message").textContent = "✅ Correct Number!";
+      //document.querySelector(".message").textContent = "✅ Correct Number!";
+      displayMessage("✅ Correct Number!");
       document.querySelector(".number").textContent = `${secretNumber}`;
       // inline css
       document.querySelector("body").style.backgroundColor = "#60b347";
@@ -45,6 +51,16 @@ document.querySelector(".check").addEventListener("click", function () {
         document.querySelector(".highscore").textContent = highScore;
       }
     }
+    //when gues is wrong
+    else if (guess !== secretNumber) {
+      //document.querySelector(".message").textContent = guess > secretNumber ? "👆 Number too high!" : "👇 Number too low!";
+      displayMessage(
+        guess > secretNumber ? "👆 Number too high!" : "👇 Number too low!"
+      );
+      score--;
+      document.querySelector(".score").textContent = score;
+    }
+    /*
     //number too high
     else if (guess > secretNumber) {
       document.querySelector(".message").textContent = "👆 Number too high!";
@@ -57,6 +73,7 @@ document.querySelector(".check").addEventListener("click", function () {
       score--;
       document.querySelector(".score").textContent = score;
     }
+    */
   } else {
     document.querySelector(".message").textContent = "💥You Lost the Game ";
   }
