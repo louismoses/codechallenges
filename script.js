@@ -109,13 +109,23 @@ const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".close-modal");
 const btnsShowModal = document.querySelectorAll(".show-modal");
 
-// show all buttons text
-for (let i = 0; i < btnsShowModal.length; i++) {
-  btnsShowModal[i].addEventListener("click", function () {
-    console.log("btn clicked");
-  });
-}
-
 //checks if this script is needed on the page
 if (modalPage) {
+  //show modal element
+  const openModal = function () {
+    modal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+  }; //hide modal element
+  const closeModal = function () {
+    modal.classList.add("hidden");
+    overlay.classList.add("hidden");
+  };
+  // click show modal element
+  for (let i = 0; i < btnsShowModal.length; i++) {
+    btnsShowModal[i].addEventListener("click", openModal);
+  }
+
+  //click hide modal element
+  btnCloseModal.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
 }
