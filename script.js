@@ -18,6 +18,7 @@ const printForecast = function (arr) {
 printForecast(testData1);
 printForecast(testData2);
 */
+
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
@@ -27,41 +28,45 @@ const displayMessage = function (message) {
   document.querySelector(".message").textContent = message;
 };
 
-//check my guess --------------------------
-document.querySelector(".check").addEventListener("click", function () {
-  const guess = Number(document.querySelector(".guess").value);
-  // score not zero
-  if (score) {
-    //no input
-    if (!guess) {
-      // document.querySelector(".message").textContent = "⛔ No Number!";
-      displayMessage("⛔ No Number!");
-    }
-    // when guess is correct
-    else if (guess === secretNumber) {
-      //document.querySelector(".message").textContent = "✅ Correct Number!";
-      displayMessage("✅ Correct Number!");
-      document.querySelector(".number").textContent = `${secretNumber}`;
-      // inline css
-      document.querySelector("body").style.background =
-        "linear-gradient(to top left, #28b487, #7dd56f";
-      document.querySelector(".number").style.width = "30rem";
-      // high score
-      if (score > highScore) {
-        highScore = score;
-        document.querySelector(".highscore").textContent = highScore;
+//check my guess number challenge ==========================
+
+const guessPage = document.querySelector("#guessMyNumber");
+//checks if this script is needed on the page
+if (guessPage) {
+  document.querySelector(".check").addEventListener("click", function () {
+    const guess = Number(document.querySelector(".guess").value);
+    // score not zero
+    if (score) {
+      //no input
+      if (!guess) {
+        // document.querySelector(".message").textContent = "⛔ No Number!";
+        displayMessage("⛔ No Number!");
       }
-    }
-    //when gues is wrong
-    else if (guess !== secretNumber) {
-      //document.querySelector(".message").textContent = guess > secretNumber ? "👆 Number too high!" : "👇 Number too low!";
-      displayMessage(
-        guess > secretNumber ? "👆 Number too high!" : "👇 Number too low!"
-      );
-      score--;
-      document.querySelector(".score").textContent = score;
-    }
-    /*
+      // when guess is correct
+      else if (guess === secretNumber) {
+        //document.querySelector(".message").textContent = "✅ Correct Number!";
+        displayMessage("✅ Correct Number!");
+        document.querySelector(".number").textContent = `${secretNumber}`;
+        // inline css
+        document.querySelector("body").style.background =
+          "linear-gradient(to top left, #28b487, #7dd56f";
+        document.querySelector(".number").style.width = "30rem";
+        // high score
+        if (score > highScore) {
+          highScore = score;
+          document.querySelector(".highscore").textContent = highScore;
+        }
+      }
+      //when gues is wrong
+      else if (guess !== secretNumber) {
+        //document.querySelector(".message").textContent = guess > secretNumber ? "👆 Number too high!" : "👇 Number too low!";
+        displayMessage(
+          guess > secretNumber ? "👆 Number too high!" : "👇 Number too low!"
+        );
+        score--;
+        document.querySelector(".score").textContent = score;
+      }
+      /*
     //number too high
     else if (guess > secretNumber) {
       document.querySelector(".message").textContent = "👆 Number too high!";
@@ -75,24 +80,42 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".score").textContent = score;
     }
     */
-  } else {
-    document.querySelector(".message").textContent = "💥You Lost the Game ";
-  }
-});
-//play again -------------------
-document.querySelector(".again").addEventListener("click", function () {
-  //restore score
-  score = 20;
-  //restore secret number
-  secretNumber = Math.trunc(Math.random() * 20) + 1;
-  document.querySelector(".score").textContent = "20";
-  document.querySelector(".number").textContent = `?`;
-  //restore number
-  document.querySelector(".guess").value = "";
-  //restore message
-  document.querySelector(".message").textContent = "Start guessing...";
-  //restore background
-  document.querySelector("body").style.background =
-    "linear-gradient(to top left, #222, #222";
-  document.querySelector(".number").style.width = "15rem";
-});
+    } else {
+      document.querySelector(".message").textContent = "💥You Lost the Game ";
+    }
+  });
+  //play again -------------------
+  document.querySelector(".again").addEventListener("click", function () {
+    //restore score
+    score = 20;
+    //restore secret number
+    secretNumber = Math.trunc(Math.random() * 20) + 1;
+    document.querySelector(".score").textContent = "20";
+    document.querySelector(".number").textContent = `?`;
+    //restore number
+    document.querySelector(".guess").value = "";
+    //restore message
+    document.querySelector(".message").textContent = "Start guessing...";
+    //restore background
+    document.querySelector("body").style.background =
+      "linear-gradient(to top left, #222, #222";
+    document.querySelector(".number").style.width = "15rem";
+  });
+}
+
+//Modal page code challenge ================================
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const btnCloseModal = document.querySelector(".close-modal");
+const btnsShowModal = document.querySelectorAll(".show-modal");
+
+// show all buttons text
+for (let i = 0; i < btnsShowModal.length; i++) {
+  btnsShowModal[i].addEventListener("click", function () {
+    console.log("btn clicked");
+  });
+}
+
+//checks if this script is needed on the page
+if (modalPage) {
+}
