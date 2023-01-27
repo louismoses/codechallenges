@@ -43,7 +43,8 @@ document.querySelector(".check").addEventListener("click", function () {
       displayMessage("✅ Correct Number!");
       document.querySelector(".number").textContent = `${secretNumber}`;
       // inline css
-      document.querySelector("body").style.backgroundColor = "#60b347";
+      document.querySelector("body").style.background =
+        "linear-gradient(to top left, #28b487, #7dd56f";
       document.querySelector(".number").style.width = "30rem";
       // high score
       if (score > highScore) {
@@ -91,6 +92,7 @@ document.querySelector(".again").addEventListener("click", function () {
   //restore message
   document.querySelector(".message").textContent = "Start guessing...";
   //restore background
-  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector("body").style.background =
+    "linear-gradient(to top left, #222, #222";
   document.querySelector(".number").style.width = "15rem";
 });
