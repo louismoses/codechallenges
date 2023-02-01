@@ -19,20 +19,21 @@ printForecast(testData1);
 printForecast(testData2);
 */
 
-let secretNumber = Math.trunc(Math.random() * 20) + 1;
-let score = 20;
-let highScore = 0;
-
-// function to display message
-const displayMessage = function (message) {
-  document.querySelector(".message").textContent = message;
-};
-
-//check my guess number challenge ==========================
-
-const guessPage = document.querySelector("#guessMyNumber");
 //checks if this script is needed on the page
+const guessPage = document.querySelector("#guessMyNumber");
 if (guessPage) {
+  let secretNumber = Math.trunc(Math.random() * 20) + 1;
+  let score = 20;
+  let highScore = 0;
+
+  // function to display message
+  const displayMessage = function (message) {
+    document.querySelector(".message").textContent = message;
+  };
+
+  //check my guess number challenge ==========================
+
+  const guessPage = document.querySelector("#guessMyNumber");
   document.querySelector(".check").addEventListener("click", function () {
     const guess = Number(document.querySelector(".guess").value);
     // score not zero
@@ -103,14 +104,14 @@ if (guessPage) {
   });
 }
 
-//Modal page code challenge ================================
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const btnCloseModal = document.querySelector(".close-modal");
-const btnsShowModal = document.querySelectorAll(".show-modal");
-
 //checks if this script is needed on the page
+const modalPage = document.querySelector("#modalPage");
 if (modalPage) {
+  //Modal page code challenge ================================
+  const modal = document.querySelector(".modal");
+  const overlay = document.querySelector(".overlay");
+  const btnCloseModal = document.querySelector(".close-modal");
+  const btnsShowModal = document.querySelectorAll(".show-modal");
   //show modal element
   const openModal = function () {
     modal.classList.remove("hidden");
@@ -132,4 +133,9 @@ if (modalPage) {
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && !modal.classList.contains("hidden")) closeModal();
   });
+}
+
+//checks if this script is needed on the page
+const pigDice = document.querySelector("#pig-dice-game");
+if (pigDice) {
 }
