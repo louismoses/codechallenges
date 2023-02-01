@@ -142,11 +142,23 @@ if (pigDice) {
   const score0El = document.querySelector("#score--0");
   const score1El = document.querySelector("#score--1");
   const diceEl = document.querySelector(".dice");
+  const rollDiceEl = document.querySelector(".btn--roll");
+  const diceImageEl = document.querySelector(".dice");
 
   //starting conditions
   score0El.textContent = 0;
   score1El.textContent = 0;
   diceEl.classList.add("hidden");
 
-  const newGame = function () {};
+  const rollDice = function () {
+    let diceValue = Math.trunc(Math.random() * 6 + 1);
+    diceEl.classList.remove("hidden");
+    diceImageEl.src = `dice-${diceValue}.png`;
+    if (diceValue === 1) {
+      console.log(diceValue);
+    } else {
+    }
+  };
+
+  rollDiceEl.addEventListener("click", rollDice);
 }
