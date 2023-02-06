@@ -141,24 +141,35 @@ if (pigDice) {
   //selecting elements
   const score0El = document.querySelector("#score--0");
   const score1El = document.querySelector("#score--1");
+  const current0El = document.getElementById("current--0");
+  const current1El = document.getElementById("current--1");
+
   const diceEl = document.querySelector(".dice");
-  const rollDiceEl = document.querySelector(".btn--roll");
-  const diceImageEl = document.querySelector(".dice");
+  const btnRoll = document.querySelector(".btn--roll");
 
   //starting conditions
   score0El.textContent = 0;
   score1El.textContent = 0;
   diceEl.classList.add("hidden");
 
+  let currentScore = 0;
+
   const rollDice = function () {
+    //generate random number
     let diceValue = Math.trunc(Math.random() * 6 + 1);
+    // display dice
     diceEl.classList.remove("hidden");
-    diceImageEl.src = `dice-${diceValue}.png`;
+    diceEl.src = `dice-${diceValue}.png`;
+    //
     if (diceValue === 1) {
-      console.log(diceValue);
+      console.log("reset score");
     } else {
+      currentScore += diceValue;
+      current0El.textContent = currentScore;
+      console.log("add score to current score", currentScore);
     }
   };
 
-  rollDiceEl.addEventListener("click", rollDice);
+  btnRoll.addEventListener("click", rollDice);
 }
+//video 83
