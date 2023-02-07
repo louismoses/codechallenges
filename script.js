@@ -228,4 +228,4 @@ if (pigDice) {
   btnNew.addEventListener("click", init);
 }
 
-//video 85
+//video 96
