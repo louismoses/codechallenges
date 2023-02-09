@@ -229,3 +229,6 @@ if (pigDice) {
 }
 
 //video 96
+//video 97
+//console.log(this);
+//video 98
