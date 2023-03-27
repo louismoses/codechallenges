@@ -234,7 +234,11 @@ if (pigDice) {
 //video 98
 //video 99
 //video 100
+<<<<<<< HEAD
 //video 103 destructuring arrays this is it pansit
+=======
+//video 103 destructuring arrays
+>>>>>>> 0d32c16598ccce0e86d72f17f0f4537017ad3cba
 
 // Data needed for a later exercise
 const flights =
